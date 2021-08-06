@@ -1,0 +1,245 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+	height: 100%;
+	min-height: 100%;
+}
+
+/* Header */
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 90px;
+	background-color: rgb(1, 90, 132);
+	color: white;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 700px;
+	margin: auto;
+}
+
+.header img {
+	width: 70px;
+}
+
+.menu-usuario {
+	margin-top: 8px;
+}
+
+.menu-usuario a {
+	color: white;
+	text-decoration: none;
+}
+
+.menu-usuario a:first-child {
+	margin-right: 10px;
+}
+
+/* Form Login e cadastro */
+.form-login, .form-register, .form-addcnpj {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: auto;
+	margin-top: 100px;
+	background-color: rgb(1, 90, 132);
+	border-radius: 10px;
+	color: rgb(255, 153, 0);
+}
+
+.form-login {
+	width: 280px;
+	height: 250px;
+}
+
+.form-register {
+	width: 280px;
+	min-height: 320px;
+}
+
+.form-addcnpj {
+	width: 280px;
+	min-height: 200px;
+	padding-bottom: 20px;
+}
+
+.form-login p.error {
+	color: red;
+	text-align: center;
+}
+
+form {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.form-register label, .form-addcnpj label {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+label p {
+	font-weight: bold;
+	font-size: 19px;
+	margin-top: 10px;
+}
+
+label input {
+	width: 200px;
+	text-align: center;
+	height: 25px;
+	font-size: 17px;
+	outline: none;
+	border-radius: 5px;
+	border: none;
+	margin-top: 3px;
+}
+
+a.page-login {
+	color: rgb(255, 153, 0);
+	text-decoration: none;
+	text-align: center;
+	position: absolute;
+	margin-bottom: -95px;
+	margin-left: 75px;
+}
+
+.form-login label button {
+	margin-top: 40px;
+	border: none;
+	border-radius: 3px;
+	width: 200px;
+	height: 25px;
+	font-size: 18px;
+	cursor: pointer;
+	font-weight: bold;
+	color: rgb(1, 90, 132);
+	background-color: rgb(255, 153, 0);
+	transition: .5s;
+}
+
+.form-register label button, .form-addcnpj label button {
+	margin-top: 15px;
+	border: none;
+	border-radius: 3px;
+	width: 200px;
+	height: 25px;
+	font-size: 18px;
+	cursor: pointer;
+	font-weight: bold;
+	color: rgb(1, 90, 132);
+	background-color: rgb(255, 153, 0);
+	transition: .5s;
+}
+
+.form-login label button:hover, .form-register label button:hover,
+	.form-addcnpj label button:hover {
+	background-color: rgba(255, 153, 0, .85);
+}
+
+.form-register label a {
+	color: rgb(255, 153, 0);
+	text-decoration: none;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.form-register .listcnpj div,
+.form-addcnpj .listcnpj div {
+	width: 200px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 5px;
+	margin: auto;
+}
+
+.form-register .listcnpj div button,
+.form-addcnpj .listcnpj div button{
+	background: none;
+	border: none;
+	color: rgb(255, 153, 0);
+}
+
+/* lista de cnpj */
+.list-cnpj {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 700px;
+	margin: auto;
+	margin-top: 30px;
+}
+
+.list-all-cnpj {
+	width: 300px;
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+}
+
+.list-all-cnpj .cnpj {
+	margin-top: 10px;
+}
+
+.list-all-cnpj a {
+	text-decoration: none;
+	color: rgb(255, 153, 0);
+	margin-bottom: 5px;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: solid 1px black;
+} 
+
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 700px;
+	margin: auto;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+.displayed-directory h3 {
+	width: 700px;
+	margin: auto;
+	margin-top: 30px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.downloadcomplite {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	height: 70%;
+	color: blue;
+}

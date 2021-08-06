@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Portal Contador</title>
+</head>
+<body>
+	<div class="header" th:fragment="header">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap"
+			rel="stylesheet">
+		<link rel="stylesheet" href="style/style.css">
+		<div class="img-logo">
+			<img alt="ASN Software" src="img/logo.png">
+		</div>
+		<h1>Portal Contador</h1>
+		<div>
+			<div th:if="${session.userLogged.nome}">
+				<h3 th:text="${session.userLogged.nome}"></h3>
+				<div class="menu-usuario">
+					 <a href="/logout">Sair</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer" th:fragment="footer">
+	</div>
+</body>
+</html>

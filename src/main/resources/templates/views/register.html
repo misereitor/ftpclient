@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Portal Contador</title>
+<link rel="icon" type="image/png" href="img/logo.png" />
+</head>
+<body>
+	<header>
+		<link rel="stylesheet" href="style/style.css">
+		<div class="header">
+			<div class="img-logo">
+				<img alt="ASN Software" src="img/logo.png">
+			</div>
+			<div>
+				<h1>Portal Contador</h1>
+			</div>
+		</div>
+	</header>
+	<form method="post" action="/register" class="form-register">
+		<p th:if="${erro}" th:text="${erro}" class="error"></p>
+		<label>
+			<p>Usuário</p> <input type="text" name="nome" placeholder="Usuário">
+		</label> <label>
+			<p>Senha</p> <input autocomplete="on" name="senha" type="password"
+			placeholder="Senha">
+		</label> <label>
+			<p>CNPJ'S</p> <input type="text" maxlength="18" name="cnpj"
+			placeholder="CNPJ" autocomplete="off" class="cnpj">
+			<button type="button" class="addcnpj">Adicionar</button>
+		</label>
+		<div class="listcnpj"></div>
+		<label>
+			<button onclick="submitRegister()" type="submit">Cadastrar</button> <a
+			href="/">Já tenho uma conta</a>
+		</label>
+	</form>
+	<footer th:insert="partials/partials.html :: footer"> </footer>
+	<script type="text/javascript" src="scripts/register.js"></script>
+</body>
+</html>

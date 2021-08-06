@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Portal Contador</title>
+<link rel="icon" type="image/png" href="img/logo.png" />
+</head>
+<body>
+	<header th:insert="partials/partials.html :: header"> </header>
+	<form method="post" action="/registercnpj" class="form-addcnpj">
+		<label>
+			<p>CNPJ'S</p> <input type="text" maxlength="18" name="cnpj"
+			placeholder="CNPJ" autocomplete="off" class="cnpj">
+			<button type="button" class="addcnpj">Adicionar</button>
+		</label>
+		<div class="listcnpj"></div>
+		<label>
+			<button onclick="submitRegister()" type="submit">Cadastrar</button>
+		</label>
+	</form>
+	<script type="text/javascript" src="scripts/register.js"></script>
+	<script type="text/javascript" th:inline="javascript">
+		let cnpjRegisted = (/*[[${session.userLogged.cnpj}]]*/ 'User Name').split(",");
+		cnpjRegisted.forEach(el => {
+			el = el.replace(/\D/g, '')
+            el = el.replace(/^(\d{2})(\d)/, '$1.$2')
+            el = el.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
+            el = el.replace(/\.(\d{3})(\d)/, '.$1/$2')
+            el = el.replace(/(\d{4})(\d)/, '$1-$2')
+            addCnpj(el)
+		})
+		
+	</script>
+</body>
+</html>

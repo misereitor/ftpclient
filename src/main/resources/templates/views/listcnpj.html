@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Portal Contador</title>
+<link rel="icon" type="image/png" href="img/logo.png" />
+</head>
+<body>
+	<header th:insert="partials/partials.html :: header"> </header>
+	<div class="list-cnpj">
+		<div>
+			<h2>CNPJ Vinculados</h2>
+		</div>
+		<div class="list-all-cnpj">
+			<div class="cnpj" th:each="client : ${clientLink}">
+				<a th:href="@{/folder(folder=${client.cpfcnpj})}">
+					<p th:text="${client.nomefantasia}"></p>
+					<p th:text="${client.cpfcnpj}"></p>
+				</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

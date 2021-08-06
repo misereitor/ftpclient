@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Portal Contador FTP</title>
+<link rel="icon" type="image/png" href="img/logo.png" />
+</head>
+<body>
+	<header>
+		<link rel="stylesheet" href="style/style.css">
+		<div class="header">
+			<div class="img-logo">
+				<img alt="ASN Software" src="img/logo.png">
+			</div>
+			<div>
+				<h1>Portal Contador</h1>
+			</div>
+		</div>
+	</header>
+	<div class="form-login">
+		<p th:if="${erro}" th:text="${erro}" class="error"></p>
+		<form action="/" method="post">
+			<label>
+				<p>Usuário</p> <input type="text" name="user" placeholder="Usuário">
+			</label> <label>
+				<p>Senha</p> <input name="password" autocomplete="on"
+				type="password" placeholder="Senha">
+			</label> <label>
+				<button type="submit">Entrar</button>
+			</label>
+		</form>
+	</div>
+	<footer th:insert="partials/partials.html :: footer"> </footer>
+</body>
+</html>

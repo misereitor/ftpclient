@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Portal Contador</title>
+<link rel="icon" type="image/png" href="img/logo.png" />
+</head>
+<body>
+	<header th:insert="partials/partials.html :: header">
+	</header>
+		<div class="displayed-directory">
+			<h3>Exibindo: <blink th:text="${directory}"></blink></h3>
+		</div>
+	<table>
+		<tr>
+			<th>Nome</th>
+			<th>Tamanho</th>
+			<td>Download</td>
+		</tr>
+		<tr th:if="${directory} != ''">
+			<td> <a class="pagination" href="">...</a> </td>
+			<td>-</td>
+			<td>-</td>
+		 </tr>
+		<div th:each="file : ${files}">
+			<tr th:if="${file.type} == 0">
+				<td>
+				<a target="_blank" th:href="@{/download(filedownload=${file.directory}+ '/' +${file.file})}" th:text="${file.file}"></a>
+				</td>
+				<td th:text="${file.size}"></td>
+				<td><a target="_blank" th:href="@{/download(filedownload=${file.directory}+ '/' +${file.file})}" th:text="Baixar"></a></td>
+			</tr>
+			<tr th:unless="${file.type} == 0">
+				<td>
+					<a th:if="${file.directory} == '/'" th:href="@{/folder(folder=${file.directory} + ${file.file})}" th:text="${file.file}"></a>
+					<a th:unless="${file.directory} == '/'" th:href="@{/folder(folder=${file.directory} +'/'+ ${file.file})}" th:text="${file.file}"></a>
+				</td>
+				<td>-</td>
+				<td><a target="_blank" th:href="@{/download(filedownload=${file.directory}+ '/' +${file.file})}" th:text="Baixar"></a></td>
+			</tr>
+		</div>
+	</table>
+	<footer th:insert="partials/partials.html :: footer">
+	</footer>
+	<script type="text/javascript" th:inline="javascript">
+		const directory = (/*[[${directory}]]*/ 'Directory').split('/');
+		const trueDirectory = (/*[[${directory}]]*/ 'Directory');
+		if (trueDirectory.length > 60) {
+			console.log("passou")
+		}
+		const previousDirectory = []
+        const aElement = document.querySelector(".pagination")
+        directory.forEach((el, index) => {
+        	if(index < (directory.length -1))
+        		previousDirectory.push(el)
+        })
+		if(previousDirectory.length <= 1){
+			aElement.setAttribute("href", "cnpjlist")
+		} else {
+			aElement.setAttribute("href", `folder?folder=${previousDirectory.join(",").replaceAll(",", "/")}`)
+		}
+	</script>
+</body>
+</html>
